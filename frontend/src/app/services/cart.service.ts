@@ -51,6 +51,10 @@ export class CartService {
     return this.cartSubject.asObservable();
   }
 
+  getCart(): Cart{
+    return this.cartSubject.value;
+  }
+
   private setCartToLocalStorage():void{
     //if have 2 item this method (prevSum, currentItem) => prevSum +currentItem.price, 0)) have be called 2 time
     this.cart.totalPrice = this.cart.items

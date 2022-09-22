@@ -9,9 +9,10 @@
 ul{
   display: flex;
   flex-direction: column;
-  flex: 3 0;
+  flex:3 0;
   justify-content: space-evenly;
   border: 1px solid #ffbbbb;
+  border-radius: 1rem;
   list-style: none;
   margin: 0.5rem;
   padding: 0;
@@ -36,7 +37,7 @@ li img{
   object-fit: cover;
 }
 
-li didv{
+li div{
   padding: 1rem;
 }
 
@@ -48,7 +49,7 @@ li select{
   width: 3rem;
   outline: none;
   border: none;
-  border-bottom: 1px solid lightgray;
+  border-bottom: 1px solid lightgrey;
   font-size: 1.1rem;
   font-weight: 100;
 }
@@ -72,10 +73,10 @@ li .remove-button:hover{
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  flex: 1 3;
+  flex:1 3;
   height: 20rem;
-  border-radius:1rem ;
-  border:1px solid #ffbbbb;
+  border: 1px solid #ffbbbb;
+  border-radius: 1rem;
   padding: 0.5rem;
   margin: 0.5rem;
 }
@@ -95,19 +96,19 @@ li .remove-button:hover{
 }
 
 .foods-count::before{
-  content: "Count: ";
+  content:"Count: ";
   color: grey;
 }
 
 .total-price::before{
-  content: "Price: ";
+  content: 'Price: ';
   color: grey;
 }
 
 .checkout a{
   padding: 1rem;
   color: white;
-  background: #e72929;
+  background:#e72929;
   display: block;
   width: 99%;
   border-radius: 1rem;
@@ -120,5 +121,3 @@ li .remove-button:hover{
   opacity: 1;
   cursor: pointer;
 }
-
-

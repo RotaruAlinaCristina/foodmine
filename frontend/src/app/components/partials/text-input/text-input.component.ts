@@ -10,7 +10,7 @@ export class TextInputComponent implements OnInit {
   @Input()
   control!: AbstractControl;
   @Input()
-  showErrorsWhen = true;
+  showErrorsWhen:boolean = true;
   @Input()
   label!: string;
   @Input()

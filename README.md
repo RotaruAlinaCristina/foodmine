@@ -149,3 +149,14 @@
     3. Add User to User Service
     4. Add Cart to Cart Service
     5. Create Order Item List Component
+    6. Adding Map to the Checkout Page
+        1. Add Leaflet npm package
+        2. Ad CSS to angular.json
+    2. Add Address LatLag to Order Model
+    3. Create Map Component
+        1. Add to Checkout Page
+        2. Add ts
+            1. Change app-map selector to map
+        3. Add Html
+        4. Add Css
+    4. Add Auth Guard

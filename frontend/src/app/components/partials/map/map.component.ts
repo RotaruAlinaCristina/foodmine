@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnChanges, ViewChild } from '@angular/core';
 import {
   icon,
   LatLng,
@@ -19,11 +19,11 @@ import { Order } from 'src/app/shared/models/Order';
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.css'],
 })
-export class MapComponent implements OnInit {
+export class MapComponent implements OnChanges {
   @Input()
   order!:Order;
   @Input()
-  readonly = false;
+  readonly=false;
   private readonly MARKER_ZOOM_LAVEL = 16;
   private readonly MARKER_ICON = icon({
     iconUrl:
@@ -40,7 +40,7 @@ export class MapComponent implements OnInit {
 
   constructor(private locationService: LocationService) {}
 
-  ngOnInit(): void {
+  ngOnChanges(): void {
     if(!this.order) return;
     this.initializeMap();
 

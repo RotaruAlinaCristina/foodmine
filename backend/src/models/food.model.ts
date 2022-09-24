@@ -4,11 +4,11 @@ export interface Food{
     id:string;
     name:string;
     price:number;
-    tags:string[];
+    tags: string[];
     favorite:boolean;
-    stars:number;
-    imageUrl:string;
-    origins:string[];
+    stars: number;
+    imageUrl: string;
+    origins: string[];
     cookTime:string;
 }
 
@@ -22,15 +22,14 @@ export const FoodSchema = new Schema<Food>(
         imageUrl: {type: String, required:true},
         origins: {type: [String], required:true},
         cookTime: {type: String, required:true}
-    }, {
+    },{
         toJSON:{
-            virtuals:true
+            virtuals: true
         },
         toObject:{
-            virtuals:true
+            virtuals: true
         },
         timestamps:true
-
     }
 );
 

@@ -150,13 +150,48 @@
     4. Add Cart to Cart Service
     5. Create Order Item List Component
     6. Adding Map to the Checkout Page
-        1. Add Leaflet npm package
-        2. Ad CSS to angular.json
-    2. Add Address LatLag to Order Model
-    3. Create Map Component
-        1. Add to Checkout Page
-        2. Add ts
-            1. Change app-map selector to map
-        3. Add Html
-        4. Add Css
-    4. Add Auth Guard
+            1. Add Leaflet npm package
+            2. Ad CSS to angular.json
+        2. Add Address LatLag to Order Model
+        3. Create Map Component
+            1. Add to Checkout Page
+            2. Add ts
+                1. Change app-map selector to map
+            3. Add Html
+            4. Add Css
+        4. Add Auth Guard
+    7. Save Order
+        1. Add Order Model
+        2. Add Order Status Enum
+        3. Add Auth Middleware
+        4. Add Order Router
+            1. Add create API
+        5. Add Order URLs to urls.ts
+        6. Add Order Service
+            1. Add create method
+        7. Add Auth Interceptop
+
+18. Payment Page 
+    1. Generate Component
+    2. Add 'getOrderForCurentUser' api
+    3. Add Order Service method
+    4. Connect Component to Service
+    5. Make the map component readonly
+
+19. Adding PayPal
+    1. Generate Component
+        1. Add to payment page
+    2. Get Paypal client Id
+    3. Add Paypal JS to index.html
+    4. Set up Paypal button
+    5. Add Pay api to Order Router
+    6. Get Paypal sandbox account
+
+20. Order Track Page
+    1. Generate Component
+        1. Add to routes
+    2. Add API
+        1. Add to urls.ts
+    3. Add method to order.service
+    4. Add html
+    5. Add Css

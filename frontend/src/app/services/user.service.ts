@@ -12,46 +12,49 @@ const USER_KEY = 'User';
   providedIn: 'root',
 })
 export class UserService {
-  private userSubject
-  = new BehaviorSubject<User>(this.getUserToLocalStorage());
-  public userObservable: Observable<User>;
-  constructor(private hhtp: HttpClient, private toastrService:ToastrService) {
+  private userSubject =
+  new BehaviorSubject<User>(this.getUserFromLocalStorage());
+  public userObservable:Observable<User>;
+  constructor(private http:HttpClient, private toastrService:ToastrService) {
     this.userObservable = this.userSubject.asObservable();
   }
 
-  public get currentUser(): User{
+  public get currentUser():User{
     return this.userSubject.value;
   }
 
-  login(userLogin: IUserLogin): Observable<User> {
-    return this.hhtp.post<User>(USER_LOGIN_URL, userLogin).pipe(
+  login(userLogin:IUserLogin):Observable<User>{
+    return this.http.post<User>(USER_LOGIN_URL, userLogin).pipe(
       tap({
-        next: (user) => {
+        next: (user) =>{
           this.setUserToLocalStorage(user);
           this.userSubject.next(user);
           this.toastrService.success(
-            `Welcome to Foodmine ${user.name}!`,'Login Successful'
+            `Welcome to Foodmine ${user.name}!`,
+            'Login Successful'
           )
         },
         error: (errorResponse) => {
-          this.toastrService.error(errorResponse.error, 'Login Failed')
+          this.toastrService.error(errorResponse.error, 'Login Failed');
         }
       })
     );
   }
 
-  register(userRgister:IUserRegister): Observable<User>{
-    return this.hhtp.post<User>(USER_REGISTER_URL, userRgister).pipe(
+  register(userRegiser:IUserRegister): Observable<User>{
+    return this.http.post<User>(USER_REGISTER_URL, userRegiser).pipe(
       tap({
         next: (user) => {
           this.setUserToLocalStorage(user);
           this.userSubject.next(user);
           this.toastrService.success(
-            `Welcome to Foodmine ${user.name}!`,'Register Successful'
+            `Welcome to the Foodmine ${user.name}`,
+            'Register Successful'
           )
         },
         error: (errorResponse) => {
-          this.toastrService.error(errorResponse.error, 'Register Failed')
+          this.toastrService.error(errorResponse.error,
+            'Register Failed')
         }
       })
     )
@@ -67,9 +70,9 @@ export class UserService {
     localStorage.setItem(USER_KEY, JSON.stringify(user));
   }
 
-  private getUserToLocalStorage(): User{
+  private getUserFromLocalStorage():User{
     const userJson = localStorage.getItem(USER_KEY);
-    if(userJson) JSON.parse(userJson) as User;
-     return new User();
+    if(userJson) return JSON.parse(userJson) as User;
+    return new User();
   }
 }
